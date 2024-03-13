@@ -26,6 +26,7 @@ export default class FluentuitestWebPart extends BaseClientSideWebPart<IFluentui
   private _isDarkTheme: boolean = false;
   private _environmentMessage: string = "";
 
+  // Render modificato rispetto all'originale per implementare Fluent UI V9
   public render(): void {
     const theme = this._isDarkTheme ? webDarkTheme : webLightTheme;
 
