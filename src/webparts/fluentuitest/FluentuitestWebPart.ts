@@ -8,31 +8,47 @@ import {
 import { BaseClientSideWebPart } from "@microsoft/sp-webpart-base";
 import { IReadonlyTheme } from "@microsoft/sp-component-base";
 
-import * as strings from "HelloWorldWebPartStrings";
-import HelloWorld from "./components/HelloWorld";
-import { IHelloWorldProps } from "./components/IHelloWorldProps";
+import {
+  FluentProvider,
+  webLightTheme,
+  webDarkTheme,
+} from "@fluentui/react-components";
 
-export interface IHelloWorldWebPartProps {
+import * as strings from "FluentuitestWebPartStrings";
+import Fluentuitest from "./components/Fluentuitest";
+import { IFluentuitestProps } from "./components/IFluentuitestProps";
+
+export interface IFluentuitestWebPartProps {
   description: string;
 }
 
-export default class HelloWorldWebPart extends BaseClientSideWebPart<IHelloWorldWebPartProps> {
+export default class FluentuitestWebPart extends BaseClientSideWebPart<IFluentuitestWebPartProps> {
   private _isDarkTheme: boolean = false;
   private _environmentMessage: string = "";
 
   public render(): void {
-    const element: React.ReactElement<IHelloWorldProps> = React.createElement(
-      HelloWorld,
-      {
-        description: this.properties.description,
-        isDarkTheme: this._isDarkTheme,
-        environmentMessage: this._environmentMessage,
-        hasTeamsContext: !!this.context.sdks.microsoftTeams,
-        userDisplayName: this.context.pageContext.user.displayName,
-      }
+    const theme = this._isDarkTheme ? webDarkTheme : webLightTheme;
+
+    const fluentuitestProps: IFluentuitestProps = {
+      description: this.properties.description,
+      isDarkTheme: this._isDarkTheme,
+      environmentMessage: this._environmentMessage,
+      hasTeamsContext: !!this.context.sdks.microsoftTeams,
+      userDisplayName: this.context.pageContext.user.displayName,
+    };
+
+    // Creazione dell'elemento Fluentuitest mantenendo il tipo specificato
+    const fluentuitestElement: React.ReactElement<IFluentuitestProps> =
+      React.createElement(Fluentuitest, fluentuitestProps);
+
+    // FluentProvider non può essere tipizzato nello stesso modo poiché wrappa Fluentuitest
+    const wrappedElement = React.createElement(
+      FluentProvider,
+      { theme: theme },
+      fluentuitestElement
     );
 
-    ReactDom.render(element, this.domElement);
+    ReactDom.render(wrappedElement, this.domElement);
   }
 
   protected onInit(): Promise<void> {

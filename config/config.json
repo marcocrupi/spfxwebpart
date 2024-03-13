@@ -9,10 +9,19 @@
           "manifest": "./src/webparts/helloWorld/HelloWorldWebPart.manifest.json"
         }
       ]
+    },
+    "fluentuitest-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/fluentuitest/FluentuitestWebPart.js",
+          "manifest": "./src/webparts/fluentuitest/FluentuitestWebPart.manifest.json"
+        }
+      ]
     }
   },
   "externals": {},
   "localizedResources": {
-    "HelloWorldWebPartStrings": "lib/webparts/helloWorld/loc/{locale}.js"
+    "HelloWorldWebPartStrings": "lib/webparts/helloWorld/loc/{locale}.js",
+    "FluentuitestWebPartStrings": "lib/webparts/fluentuitest/loc/{locale}.js"
   }
 }
