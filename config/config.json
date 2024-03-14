@@ -25,12 +25,21 @@
           "manifest": "./src/webparts/batchedWebTest/BatchedWebTestWebPart.manifest.json"
         }
       ]
+    },
+    "test-jspdf-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/testJspdf/TestJspdfWebPart.js",
+          "manifest": "./src/webparts/testJspdf/TestJspdfWebPart.manifest.json"
+        }
+      ]
     }
   },
   "externals": {},
   "localizedResources": {
     "HelloWorldWebPartStrings": "lib/webparts/helloWorld/loc/{locale}.js",
     "FluentuitestWebPartStrings": "lib/webparts/fluentuitest/loc/{locale}.js",
-    "BatchedWebTestWebPartStrings": "lib/webparts/batchedWebTest/loc/{locale}.js"
+    "BatchedWebTestWebPartStrings": "lib/webparts/batchedWebTest/loc/{locale}.js",
+    "TestJspdfWebPartStrings": "lib/webparts/testJspdf/loc/{locale}.js"
   }
 }
