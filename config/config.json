@@ -17,11 +17,20 @@
           "manifest": "./src/webparts/fluentuitest/FluentuitestWebPart.manifest.json"
         }
       ]
+    },
+    "batched-web-test-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/batchedWebTest/BatchedWebTestWebPart.js",
+          "manifest": "./src/webparts/batchedWebTest/BatchedWebTestWebPart.manifest.json"
+        }
+      ]
     }
   },
   "externals": {},
   "localizedResources": {
     "HelloWorldWebPartStrings": "lib/webparts/helloWorld/loc/{locale}.js",
-    "FluentuitestWebPartStrings": "lib/webparts/fluentuitest/loc/{locale}.js"
+    "FluentuitestWebPartStrings": "lib/webparts/fluentuitest/loc/{locale}.js",
+    "BatchedWebTestWebPartStrings": "lib/webparts/batchedWebTest/loc/{locale}.js"
   }
 }
