@@ -51,7 +51,7 @@ export default class BatchedWebTestWebPart extends BaseClientSideWebPart<IBatche
 
     let listTitles: any[] = [];
 
-    // batchedWeb().then((r) => res.push(r));
+    batchedWeb().then((r) => listTitles.push(r));
 
     // Prepara la chiamata batch per ottenere i titoli delle liste
     batchedWeb.lists
